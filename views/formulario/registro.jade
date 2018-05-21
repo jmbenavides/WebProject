@@ -1,0 +1,33 @@
+extends ../layout.jade
+block contenido
+	div(class="col-md-3 center-block text-center quitarfloat espacioarriba fondo")
+		h2(class="rojoclaro") Registrate
+	div(class="col-md-4 col-sm-5 col-xs-7 center-block text-left quitarfloat fondo")
+		form(method="post" action="/formulario" style="margin-top:1.5em")
+			div(class="form-group text")
+				label Nombres :   
+				input(type="text" name="nombre" placeholder="Nombres :" class="form-control" ) 
+
+			div(class="form-group text")
+				label Apellidos:   
+				input(type="text" name="apellido" placeholder="Apellidos" class="form-control" ) 
+
+			div(class="form-group text")
+				label Email :   
+				input(type="text" name="email" placeholder="Email" class="form-control") 
+
+
+			div(class="form-group text")
+				label Contraseña:   
+				input(type="password" name="contrasena" placeholder="Contraseña" class="form-control " ) 
+
+			div(class="form-group text-right")
+				input(type="submit" class="btn btn-info" value="Registrarse" )
+
+
+
+
+	div(class="col-md-4 center-block quitarfloat")
+		nav(class="text-center")
+			a(class="col-md-6" href="/	 ") Inicio
+			a(class="col-md-6" href="/formulario/iniciarsesion") Iniciar sesion

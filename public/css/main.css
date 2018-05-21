@@ -1,0 +1,41 @@
+.espacioarriba{
+	margin-top: 100px;
+}
+.quitarfloat{
+	float: none;
+}
+.quitarmargen{
+	margin-right: 0px;
+}
+.grisclaro{
+	color:#ECEFF1;
+}
+.fondo{
+	background-color: #ECEFF1;
+}
+
+.grisoscuro{
+	color:#616161;
+}
+.azult1{
+	color: #1678FF;
+}
+.azult2{
+	color: #00098E;
+}
+.rojoclaro{
+	color:#F44336;
+}
+.rojooscuro{
+	color:#D32F2F;
+}
+img{
+	max-width: 300px;
+}
+.alcentro{
+	text-align: center;	
+}
+.aladerecha{
+	text-align: right;		
+}
+
