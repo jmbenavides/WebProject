@@ -19,7 +19,7 @@ var personaSchema={
 	contrasena:String
 };
 
-var User=mongoose.model("",personaSchema);
+var Users=mongoose.model("",personaSchema);
 
 app.use(express.static("public"));
 
@@ -46,15 +46,15 @@ app.post("/formulario",function(req,res){
 		nombre:req.body.nombre,
 		apellido:req.body.apellido,
 		email:req.body.email,		
-		contrasena:req.body.contrasena
+		contrasena:req.body.contrasena,
+		usuario:req.body.usuario
 	}
-
 	var user = new User(data);
 
 	user.save(function(err){
 		console.log(user);
-
 	});
+
 	res.render("formulario/registroexitoso");
 });
 
@@ -62,8 +62,14 @@ app.get("/formulario/registro",function(req,res){
 	res.render("formulario/registro");
 });
 
+
 app.get("/formulario/iniciarsesion",function(req,res){
 	res.render("formulario/iniciarsesion");
 });
+
+app.post("/formulario/iniciarsesion",function(req,res){
+	res.render("formulario/iniciarsesion");
+});
+
 
 app.listen(8080);

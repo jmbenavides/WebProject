@@ -2,7 +2,7 @@ extends ../layout.jade
 block contenido
 	div(class="col-md-3 center-block text-center quitarfloat espacioarriba fondo")
 		h2(class="rojoclaro") Registrate
-	div(class="col-md-4 col-sm-5 col-xs-7 center-block text-left quitarfloat fondo")
+	div(class="col-md-4 col-sm-6 col-xs-7 center-block text-left quitarfloat fondo")
 		form(method="post" action="/formulario" style="margin-top:1.5em")
 			div(class="form-group text")
 				label Nombres :   
@@ -16,6 +16,9 @@ block contenido
 				label Email :   
 				input(type="text" name="email" placeholder="Email" class="form-control") 
 
+			div(class="form-group text")
+				label Usuario :   
+				input(type="text" name="Usuario" placeholder="Usuario" class="form-control") 
 
 			div(class="form-group text")
 				label Contraseña:   

@@ -3,9 +3,21 @@ block contenido
 	div(class="col-md-4 center-block text-center quitarfloat espacioarriba fondo")
 		h3(class="rojoclaro") Inicio de sesion
 
+	div(class="col-md-4 col-sm-5 col-xs-7 center-block text-left quitarfloat fondo")
+		form(method="post" action="/formulario/iniciarsesion" style="margin-top:1.5em")
+			div(class="form-group text")
+				label Usuario :   
+				input(type="text" name="usuario" placeholder="Usuario o correo electronico" class="form-control" ) 
+
+			div(class="form-group text")
+				label Contraseña :   
+				input(type="pasword" name="contrasena" placeholder="Contraseña" class="form-control" ) 
+			div(class="form-group text-right")
+				input(type="submit" class="btn btn-info" value="Acceder" )
 
 
 
-		nav()
+	div(class="col-md-5 center-block text-center quitarfloat espacioarriba fondo")
+		nav
 			a(class="col-md-6" href="/") Inicio
-			a(class="col-md-6" href="/formulario/registro") Registro
+			a(class="col-md-6 " href="/formulario/registro") Registro
