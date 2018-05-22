@@ -4,14 +4,14 @@ block contenido
 		h3(class="rojoclaro") Inicio de sesion
 
 	div(class="col-md-4 col-sm-5 col-xs-7 center-block text-left quitarfloat fondo")
-		form(method="post" action="/formulario/iniciarsesion" style="margin-top:1.5em")
+		form(method="post" action="/cliente/index" style="margin-top:1.5em")
 			div(class="form-group text")
-				label Usuario :   
+				label Usuario o Correo Electronico :   
 				input(type="text" name="usuario" placeholder="Usuario o correo electronico" class="form-control" ) 
 
 			div(class="form-group text")
 				label Contraseña :   
-				input(type="pasword" name="contrasena" placeholder="Contraseña" class="form-control" ) 
+				input(type="password" name="contrasena" placeholder="Contraseña" class="form-control" ) 
 			div(class="form-group text-right")
 				input(type="submit" class="btn btn-info" value="Acceder" )
 
