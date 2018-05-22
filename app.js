@@ -19,7 +19,7 @@ var personaSchema={
 	contrasena:String
 };
 
-var Users=mongoose.model("",personaSchema);
+var User=mongoose.model("",personaSchema);
 
 app.use(express.static("public"));
 
@@ -68,6 +68,21 @@ app.get("/formulario/iniciarsesion",function(req,res){
 });
 
 app.post("/formulario/iniciarsesion",function(req,res){
+
+	User.find(function(error,documento){
+		if (error) {
+			console.log(error);
+		}
+
+
+		res.render("/cliente/index",{
+			Users:documento,
+			usuario:req.body.usuario,			
+			contrasena:req.body.contrasena
+		})
+	});
+
+
 	res.render("formulario/iniciarsesion");
 });
 
