@@ -1,9 +1,24 @@
 extends ../layout.jade
 block contenido
-	div(class="col-md-3 center-block text-center quitarfloat espacioarriba fondo")
-		h2(class="rojoclaro") Registro Exitoso
-	div(class="col-md-4 center-block quitarfloat")
-		nav(class="text-center")
-			a(class="" href="/	 ") Volver a la pagina de inicio
-			
+	div(class="col-md-3 center-block text-center quitarfloat espacioarriba fondo" )
+		h3(class="rojoclaro rounded border border-primary") Registro Exitoso
+	div(class="col-md-4 center-block text-center quitarfloat fondo")
+		h3(class="rojoclaro") Inicio de sesion
+
+	div(class="col-md-4 col-sm-5 col-xs-7 center-block text-left quitarfloat fondo")
+		form(method="post" action="/cliente/index" style="margin-top:1.5em")
+			div(class="form-group text")
+				label Usuario o Correo Electronico :   
+				input(id="usuarioTf" type="text" name="usuario" placeholder="Usuario o correo electronico" class="form-control" onkeydown="hi" ) 
+
+			div(class="form-group text")
+				label Contraseña :   
+				input(type="password" name="contrasena" placeholder="Contraseña" class="form-control" ) 
+			div(class="form-group text-right")
+				input(type="submit" class="btn btn-info" value="Acceder" )
+
+	div(class="col-md-5 center-block text-center quitarfloat espacioarriba fondo")
+		nav
+			a(class="col-md-6" href="/") Inicio
+			a(class="col-md-6 " href="/formulario/registro") Registro
 		

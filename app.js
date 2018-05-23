@@ -1,14 +1,18 @@
  var express= require('express'); 
- var mongoose= require('mongoose');
+ var dbp= require('mongoose');
+ //var dbg= require('mongoose');
  var bodyParser= require('body-parser');
  var app= express();
 
 app.set("view engine","jade");
 
-mongoose.connect("mongodb://localhost/objetos");
+dbp.connect("mongodb://localhost/personas");
+
+//dbg.connect("mongodb://localhost/grupos");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
 
 var personaSchema={
 	nombre: String,	
@@ -20,7 +24,17 @@ var personaSchema={
 	grupo: String
 };
 
-var User=mongoose.model("",personaSchema);
+var grupoSchema={
+	nombre:String,
+	codigo:String,
+	nombreProyecto:String,
+	integrantes:[]
+};
+
+
+var User=dbp.model("",personaSchema);
+//var Grupo=dbg.model("",grupoSchema);
+
 app.use(express.static("public"));
 app.get("/",function(req,res ){
 	res.render("index");
@@ -37,8 +51,8 @@ app.post("/formulario",function(req,res){
 		grupo:""
 	}
 	var persona = new User(data);
-	user.save(function(err){
-		console.log(user);
+	persona.save(function(err){
+		console.log(persona);
 	});
 	res.render("formulario/registroexitoso");
 });
@@ -54,11 +68,14 @@ app.post("/cliente/index",function(req,res){
 	User.find(function(error,documento){
 		if (error) {console.log("error");}		
 		documento.forEach(function(elemento, index, arreglo){
+			console.log(index+"indice ");
+
 			console.log(elemento.usuario);
 			console.log(elemento.email);
 			console.log(elemento.contrasena);
 			console.log(req.body.usuario);
 			console.log(req.body.contrasena);
+			/*
 			console.log((elemento.usuario == req.body.usuario || elemento.email==req.body.usuario)&& 
 				elemento.contrasena == req.body.contrasena);
 			console.log("condicional 1")
@@ -70,7 +87,8 @@ app.post("/cliente/index",function(req,res){
 				console.log("persona");
 				sw=true;
 
-			}		
+			}
+			*/		
 		});
 		console.log(sw+ " hi");
 		console.log("condicional 2")
