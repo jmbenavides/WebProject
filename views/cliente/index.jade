@@ -1,6 +1,12 @@
 extends ../layout.jade
 block contenido
-	div(class="col-md-5 center-block text-center quitarfloat espacioarriba fondo") 
-		label= persona.usuario
-	div(class="col-md-5 center-block text-center quitarfloat espacioarriba fondo")
-		label= persona.nombre+" "+persona.apellido
+	div(class="col-md-5 left-block text-center quitarfloat espacioarriba fondo") 
+		p usuario
+		-var x=persona.usuario.toUpperCase()
+		label=x
+	div(class="col-md-5 left-block text-center quitarfloat espacioarriba fondo")
+		p nombre
+		-var x=persona.nombre.toUpperCase()+" "+persona.apellido.toUpperCase()
+		label= x
+
+	div() a

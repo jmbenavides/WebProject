@@ -34,7 +34,7 @@ app.post("/formulario",function(req,res){
 		contrasena:req.body.contrasena,
 		usuario:req.body.usuario,
 		tareas:null,
-		grupo:"";
+		grupo:""
 	}
 	var persona = new User(data);
 	user.save(function(err){
@@ -48,40 +48,40 @@ app.get("/formulario/registro",function(req,res){
 app.get("/formulario/iniciarsesion",function(req,res){
 	res.render("formulario/iniciarsesion");
 });
+var sw,persona;
 app.post("/cliente/index",function(req,res){
-	var sw= false,persona;
+	
 	User.find(function(error,documento){
-		if (error) {
-			console.log("error");
-		}
-		
+		if (error) {console.log("error");}		
 		documento.forEach(function(elemento, index, arreglo){
 			console.log(elemento.usuario);
 			console.log(elemento.email);
 			console.log(elemento.contrasena);
-
 			console.log(req.body.usuario);
 			console.log(req.body.contrasena);
-
-
 			console.log((elemento.usuario == req.body.usuario || elemento.email==req.body.usuario)&& 
 				elemento.contrasena == req.body.contrasena);
+			console.log("condicional 1")
+
 			if((elemento.usuario == req.body.usuario || elemento.email==req.body.usuario)&& 
 				elemento.contrasena == req.body.contrasena){
-				
 				persona=elemento;
+				console.log(persona);
+				console.log("persona");
 				sw=true;
-			}
-			
-		});
-			if(sw=true){
-				console.log(persona+"");
-				res.render("cliente/index",{persona});
-			}else{
-				res.send("este usuario no existe");
-			}
 
+			}		
+		});
+		console.log(sw+ " hi");
+		console.log("condicional 2")
+		if(sw){
+			res.render("cliente/index",{persona});
+		}else{
+			res.send("este usuario no existe");	
+		}
 	});
+	
+	
 });
 
 

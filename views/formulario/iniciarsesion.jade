@@ -7,7 +7,7 @@ block contenido
 		form(method="post" action="/cliente/index" style="margin-top:1.5em")
 			div(class="form-group text")
 				label Usuario o Correo Electronico :   
-				input(type="text" name="usuario" placeholder="Usuario o correo electronico" class="form-control" ) 
+				input(id="usuarioTf" type="text" name="usuario" placeholder="Usuario o correo electronico" class="form-control" onkeydown="hi" ) 
 
 			div(class="form-group text")
 				label Contraseña :   
@@ -15,9 +15,10 @@ block contenido
 			div(class="form-group text-right")
 				input(type="submit" class="btn btn-info" value="Acceder" )
 
-
-
 	div(class="col-md-5 center-block text-center quitarfloat espacioarriba fondo")
 		nav
 			a(class="col-md-6" href="/") Inicio
 			a(class="col-md-6 " href="/formulario/registro") Registro
+	script(type="text/javascript")
+		-function hi()
+			alert "hi"
