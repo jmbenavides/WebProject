@@ -1,6 +1,9 @@
 .espacioarriba{
 	margin-top: 100px;
 }
+.espacioarriba2{
+	margin-top: 25px;	
+}
 .quitarfloat{
 	float: none;
 }
@@ -12,6 +15,9 @@
 }
 .fondo{
 	background-color: #ECEFF1;
+}
+.fondo2{
+	background-color: #D32F2F;	
 }
 
 .grisoscuro{
@@ -38,4 +44,49 @@ img{
 .aladerecha{
 	text-align: right;		
 }
+.borde{
+	border: groove;
+}
+.borderedondo{
+	border-radius: 12px;
+}
+
+a:hover{
+	color: #ECEFF1;
+	background-color:#F44336;	
+	
+}
+a:active{
+	color: #ECEFF1;
+	background-color:#FFFFFF;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -75,7 +75,7 @@ app.post("/cliente/index",function(req,res){
 			console.log(elemento.contrasena);
 			console.log(req.body.usuario);
 			console.log(req.body.contrasena);
-			/*
+			
 			console.log((elemento.usuario == req.body.usuario || elemento.email==req.body.usuario)&& 
 				elemento.contrasena == req.body.contrasena);
 			console.log("condicional 1")
@@ -88,7 +88,7 @@ app.post("/cliente/index",function(req,res){
 				sw=true;
 
 			}
-			*/		
+					
 		});
 		console.log(sw+ " hi");
 		console.log("condicional 2")
