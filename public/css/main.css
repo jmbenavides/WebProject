@@ -45,21 +45,23 @@ img{
 	text-align: right;		
 }
 .borde{
-	border: groove;
+	border: thin;
 }
 .borderedondo{
-	border-radius: 12px;
+	border-radius: 5px;
+}
+.bordesemiredondo{
+	border-radius: 25px;	
 }
 
 a:hover{
 	color: #ECEFF1;
-	background-color:#F44336;	
+	background-color:#00FFFF;	
 	
 }
 a:active{
 	color: #ECEFF1;
-	background-color:#FFFFFF;
-	
+	background-color:#FFFFFF;	
 }
 
 

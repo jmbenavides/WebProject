@@ -1,0 +1,19 @@
+extends ../layout.jade
+block contenido
+	div
+		p(class="fondo") hi
+		-var x=persona.usuario.toUpperCase()
+		label(class="fondo")=x
+	div(class="col-md-4 col-sm-5 col-xs-6 borde borderedondo center-block text-center quitarfloat espacioarriba fondo")
+		div()		
+			h3 Nuevo Proyecto
+		div(class="text-left")  
+			form(method="post" action="/cliente/nuevoproyecto" style="	margin-top:1.5em")
+				div(class="form-group text")
+					label Nombre :   
+					input(type="text" name="nombre" placeholder="Nombres :" class="form-control" ) 
+				div(class="form-group text")
+					label Descripcion :   
+					input(type="text" name="descripcion" placeholder="Descripcion" class="form-control" ) 
+				div(class="form-group text-right")
+					input(type="submit" class="btn btn-danger" 	value="Crear Proyecto" )

@@ -20,17 +20,20 @@ var personaSchema={
 	email: String,
 	usuario: String,
 	contrasena:String,
-	tareas:[],
-	grupo: String
+	proyectos:[]
 };
 
-var grupoSchema={
+var proyecto={
 	nombre:String,
-	codigo:String,
-	nombreProyecto:String,
-	integrantes:[]
+	descripcion:String,
+	colaboradores:[],
+	tareas:[]
 };
 
+var tarea={
+	descripcion:String,
+	persona:String
+}
 
 var User=dbp.model("",personaSchema);
 //var Grupo=dbg.model("",grupoSchema);
@@ -50,12 +53,14 @@ app.post("/formulario",function(req,res){
 		tareas:null,
 		grupo:""
 	}
-	var persona = new User(data);
-	persona.save(function(err){
-		console.log(persona);
+	var person = new User(data);
+	person.save(function(err){
+		console.log(person);
 	});
 	res.render("formulario/registroexitoso");
 });
+
+
 app.get("/formulario/registro",function(req,res){
 	res.render("formulario/registro");
 });
@@ -100,6 +105,27 @@ app.post("/cliente/index",function(req,res){
 	});
 	
 	
+});
+
+app.get("/cliente/nuevoproyecto",function(req,res){
+	
+	res.render("cliente/nuevoproyecto",{persona})
+});
+app.post("/cliente/nuevoproyecto",function(req,res){
+	var x=[],y=[];
+	var proyect={
+		nombre:req.body.nombre,
+		descripcion:req.body.descripcion,
+		colaboradores:[],
+		tareas:[]
+	};
+
+	console.log(req.body.nombre);
+	x.push(req.body.nombre);
+	y.push(persona.nombre);
+	persona.proyectos=x;
+	res.render("cliente/index",{persona,proyect});
+
 });
 
 

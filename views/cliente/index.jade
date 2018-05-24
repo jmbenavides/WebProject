@@ -1,12 +1,19 @@
 extends ../layout.jade
 block contenido
-	div(class="col-md-5 left-block text-center  espacioarriba fondo") 
+	div(class="col-md-4 col-sm-5 col-xs-6 borde borderedondo text-center quitarfloat espacioarriba fondo")
 		p usuario
 		-var x=persona.usuario.toUpperCase()
 		label=x
-	div(class="col-md-5 left-block text-center  espacioarriba fondo")
 		p nombre
 		-var x=persona.nombre.toUpperCase()+" "+persona.apellido.toUpperCase()
 		label= x
+	div(class="col-md-4 col-sm-5 col-xs-6 borde borderedondo text-center quitarfloat espacioarriba fondo")
+		div mis proyectos
 
-	
+		div(style=" margin-top:1.5em")
+			each item in persona.proyectos
+				li
+					a(class="rojoclaro")= item.toUpperCase()
+	div(class="col-md-4  left-block text-center  quitarfloat espacioarriba ")
+		nav
+			a(class="col-md-6 col-xs-10 grisclaro borde borderedondo center-block quitarfloat" href="/cliente/nuevoproyecto") Registro
