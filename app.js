@@ -67,51 +67,28 @@ app.get("/formulario/registro",function(req,res){
 app.get("/formulario/iniciarsesion",function(req,res){
 	res.render("formulario/iniciarsesion");
 });
+
 var sw,persona;
 app.post("/cliente/index",function(req,res){
-	
-	User.find(function(error,documento){
-		if (error) {console.log("error");}		
-		documento.forEach(function(elemento, index, arreglo){
-			console.log(index+"indice ");
-
-			console.log(elemento.usuario);
-			console.log(elemento.email);
-			console.log(elemento.contrasena);
-			console.log(req.body.usuario);
-			console.log(req.body.contrasena);
-			
-			console.log((elemento.usuario == req.body.usuario || elemento.email==req.body.usuario)&& 
-				elemento.contrasena == req.body.contrasena);
-			console.log("condicional 1")
-
-			if((elemento.usuario == req.body.usuario || elemento.email==req.body.usuario)&& 
-				elemento.contrasena == req.body.contrasena){
-				persona=elemento;
-				console.log(persona);
-				console.log("persona");
-				sw=true;
-
-			}
-					
-		});
-		console.log(sw+ " hi");
-		console.log("condicional 2")
-		if(sw){
-			res.render("cliente/index",{persona});
-		}else{
-			res.send("este usuario no existe");	
-		}
-	});
-	
-	
+	User.findOne({"usuario": req.body.usuario },function(error,persona){
+		console.log(persona);
+		
+		
+		res.render("cliente/index",{persona});
+	})
 });
 
 app.get("/cliente/nuevoproyecto",function(req,res){
 	
 	res.render("cliente/nuevoproyecto",{persona})
 });
-app.post("/cliente/nuevoproyecto",function(req,res){
+
+app.get("/cliente",function(req,res){
+	
+	res.render("cliente/index",{persona})
+});
+
+app.post("/cliente",function(req,res){
 	var x=[],y=[];
 	var proyect={
 		nombre:req.body.nombre,
@@ -120,11 +97,22 @@ app.post("/cliente/nuevoproyecto",function(req,res){
 		tareas:[]
 	};
 
-	console.log(req.body.nombre);
-	x.push(req.body.nombre);
-	y.push(persona.nombre);
+	y=proyect.colaboradores;
+	x=persona.proyectos;
+	console.log(proyect.nombre);
+	x.push(proyect);
+	y.push(persona.usuario);
+	proyect.colaboradores=y;
 	persona.proyectos=x;
+	console.log(proyect.colaboradores[0]);
+
+	
+		
+
+	
+	
 	res.render("cliente/index",{persona,proyect});
+
 
 });
 

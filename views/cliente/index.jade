@@ -7,13 +7,14 @@ block contenido
 		p nombre
 		-var x=persona.nombre.toUpperCase()+" "+persona.apellido.toUpperCase()
 		label= x
-	div(class="col-md-4 col-sm-5 col-xs-6 borde borderedondo text-center quitarfloat espacioarriba fondo")
-		div mis proyectos
+	div(class="col-md-4 col-sm-5 col-xs-6 borde borderedondo  quitarfloat espacioarriba fondo")
+		div 
+			h7 MIS PROYECTOS
 
-		div(style=" margin-top:1.5em")
+		div(style=" margin-top:1.5em  ")
 			each item in persona.proyectos
-				li
-					a(class="rojoclaro")= item.toUpperCase()
+				li(class="text-left")
+					a(class="rojoclaro")= item.nombre.toUpperCase()
 	div(class="col-md-4  left-block text-center  quitarfloat espacioarriba ")
 		nav
 			a(class="col-md-6 col-xs-10 grisclaro borde borderedondo center-block quitarfloat" href="/cliente/nuevoproyecto") Registro
