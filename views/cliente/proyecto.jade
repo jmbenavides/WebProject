@@ -1,0 +1,33 @@
+extends ../layout.jade
+block contenido
+	div(class="col-md-4 col-sm-5 col-xs-6 borde borderedondo  quitarfloat espacioarriba fondo")
+		div 
+			h7=nombre.toUpperCase()
+		div
+			label Creador :
+			each item in persona.proyectos
+				if item.nombre==nombre
+					label=item.master
+		div
+			label Descripcion :
+			each item in persona.proyectos
+				if item.nombre==nombre
+					label=item.descripcion
+		div
+			label Colaboradores :
+			each item in persona.proyectos
+				if item.nombre==nombre
+				-list =item.Colaboradores
+					each item in list
+						label : item
+		div
+			label Tareas :
+			each item in persona.proyectos
+				if item.nombre==nombre
+					each item2 in item.tareas
+						label : item2		
+					
+					
+					
+					
+				
