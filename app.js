@@ -39,7 +39,6 @@ app.get("/",function(req,res ){
 });
 
 app.post("/formulario",function(req,res){
-	console.log(req.body);
 	var data={
 		nombre:req.body.nombre,
 		apellido:req.body.apellido,
@@ -50,7 +49,7 @@ app.post("/formulario",function(req,res){
 	}
 	var person = new User(data);
 	person.save(function(err){
-		console.log(person);
+			console.log(person);
 	});
 	res.render("formulario/registroexitoso");
 });
@@ -65,7 +64,7 @@ app.get("/formulario/iniciarsesion",function(req,res){
 
 var persona;
 app.post("/cliente/index",function(req,res){
-	User.findOne({"usuario": req.body.usuario },function(error,person){
+	User.findOne({"usuario": req.body.usuario},function(error,person){
 		
 		persona=person;
 		if(person != null){
@@ -90,6 +89,7 @@ app.get("/cliente",function(req,res){
 app.put("/cliente/:id",function(req,res){
 	
 	var x=[];
+
 	var proyect={
 		nombre:req.body.nombre,
 		master:persona.usuario,
@@ -97,28 +97,34 @@ app.put("/cliente/:id",function(req,res){
 		colaboradores:[],
 		tareas:[]
 	};
-	
+	console.log(proyect.nombre);
+	console.log(proyect.master);
+	console.log(proyect.descripcion);
+	console.log(proyect.colaboradores);
+	console.log(proyect.tareas);
+
+
+
 	persona.proyectos.push(proyect);
 		
 	var dat={
 		proyectos:persona.proyectos
 	}
-	
-	console.log(persona._id);
-
 	User.update({"_id": req.params.id},dat,function(personay){
-		console.log(personay); 	
+		console.log(persona); 	
 		res.render("cliente/index",{persona});
+
 	});
 
 });
 
 
 app.get("/proyecto/:num",function(req,res){
-	
+	var creador,descripcion,cols,tareas;
+	console.log(persona);
 	persona.proyectos.forEach(function(item){
-		var creador,descripcion,cols,tareas;
-		if(item.nombre=req.params.num){
+		
+		if(item.nombre==req.params.num){
 			creador=item.master;
 			descripcion=item.descripcion;
 			cols=item.colaboradores;

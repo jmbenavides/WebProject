@@ -4,29 +4,22 @@ block contenido
 		div 
 			h7=nombre.toUpperCase()
 		div
-			label Creador :
-			each item in persona.proyectos
-				if item.nombre==nombre
-					label=item.master
+			label Creador:    
+			label= creador
 		div
 			label Descripcion :
-			each item in persona.proyectos
-				if item.nombre==nombre
-					label=item.descripcion
+			label=descripcion
 		div
 			label Colaboradores :
-			each item in persona.proyectos
-				if item.nombre==nombre
-				-list =item.Colaboradores
-					each item in list
-						label : item
+			each item in cols
+				p item
 		div
 			label Tareas :
-			each item in persona.proyectos
-				if item.nombre==nombre
-					each item2 in item.tareas
-						label : item2		
-					
+			each item in tareas
+				label item
+	div(class="col-md-4  left-block text-center  quitarfloat espacioarriba ")
+		nav
+			a(class="col-md-6 col-xs-10 grisclaro borde borderedondo center-block quitarfloat" href="/cliente") volver a la pagina anterior
 					
 					
 					
