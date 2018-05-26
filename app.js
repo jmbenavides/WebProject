@@ -97,14 +97,6 @@ app.put("/cliente/:id",function(req,res){
 		colaboradores:[],
 		tareas:[]
 	};
-	console.log(proyect.nombre);
-	console.log(proyect.master);
-	console.log(proyect.descripcion);
-	console.log(proyect.colaboradores);
-	console.log(proyect.tareas);
-
-
-
 	persona.proyectos.push(proyect);
 		
 	var dat={
@@ -138,7 +130,47 @@ app.get("/proyecto/:num",function(req,res){
 	res.render("cliente/proyecto",{nombre:req.params.num,persona,creador,descripcion,cols,tareas});
 });
 
+app.get("/cliente/proyecto/nuevatarea/:num",function(req,res){
 
+	var cols,tareas;
+	console.log(persona);
+	persona.proyectos.forEach(function(item){
+		if(item.nombre==req.params.num){
+			cols=item.colaboradores;
+			tareas=item.tareas;
+		}
+	});
+	res.render("cliente/nuevatarea",{cols,tareas});
+
+
+
+});
+
+
+//esta parte de aqui todavia no la usamos
+app.put("/cliente/:id",function(req,res){
+	
+	var x=[];
+
+	var proyect={
+		nombre:req.body.nombre,
+		master:persona.usuario,
+		descripcion:req.body.descripcion,
+		colaboradores:[],
+		tareas:[]
+	};
+	persona.proyectos.push(proyect);
+		
+	var dat={
+		proyectos:persona.proyectos
+	}
+	User.update({"_id": req.params.id},dat,function(personay){
+		console.log(persona); 	
+		res.render("cliente/index",{persona});
+
+	});
+
+});
 
 
 
