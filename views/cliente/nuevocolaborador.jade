@@ -1,0 +1,15 @@
+extends ../layout.jade
+block contenido	
+	div(class="col-md-4 col-sm-5 col-xs-6 borde borderedondo  quitarfloat espacioarriba fondo")
+		div 
+			h7 Añadir Colaborador
+		div
+			form(method="post" action="/cliente/nuevocolaborador/#{nombre}?_method=put" style="margin-top:1.5em")
+				div(class="form-group text")
+					select(name="col")
+						option selecione uno
+						each item in personas
+							if item.usuario!=creador
+									option(value=item.usuario)=item.usuario
+				div(class="form-group text-right")
+					input(type="submit" class="btn btn-danger" 	value="Agregar" )

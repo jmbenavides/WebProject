@@ -1,3 +1,16 @@
 extends ../layout.jade
 block contenido	
-	div hi
+	div(class="col-md-4 col-sm-5 col-xs-6 borde borderedondo  quitarfloat espacioarriba fondo")
+		div 
+			h7 añadir tarea
+		div
+			form(method="post" action="/cliente/proyecto/nuevatarea/#{nombre}?_method=put" style="margin-top:1.5em")
+				div(class="form-group text")
+					label nombre de la tarea
+					input(type="text" name="nombre" placeholder="Nombre" class="form-control" ) 
+				div(class="form-group text")
+					selector(name="col")
+						each item in cols
+							option(value=item) item.nombre
+				div(class="form-group text-right")
+					input(type="submit" class="btn btn-danger" 	value="Crear Proyecto" )
