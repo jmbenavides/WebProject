@@ -45,7 +45,11 @@ img{
 	text-align: right;		
 }
 .borde{
-	border: thin;
+	border: solid;
+}
+.colorborde{
+ 	border-color: #FFFFFF;
+
 }
 .borderedondo{
 	border-radius: 5px;
@@ -53,10 +57,15 @@ img{
 .bordesemiredondo{
 	border-radius: 25px;	
 }
-
+.otrogris{
+	color:#333333;
+}
+.negrofondo{
+	background-color:#262626;
+}
 a:hover{
-	color: #ECEFF1;
-	background-color:#00FFFF;	
+	color: #d0d0d0;
+	background-color:#333333;	
 	
 }
 a:active{
