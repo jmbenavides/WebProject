@@ -197,19 +197,22 @@ app.put("/cliente/nuevocolaborador/:num",function(req,res){
 				y.push(proyect);
 				z.proyectos=y;
 
-				persona.proyectos.push(proyect);
+
 				data={
 					proyectos:z.proyectos
 				};
+
 				data2={
 					proyectos:persona.proyectos
 				};
 			});	
-
-
 		}
 	});
+
+	console.log("asdssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
+	
 	console.log(proyect);
+	
 
 	User.update({"usuario":req.body.col.usuario},data,function(error,personax){
 	});
@@ -220,5 +223,3 @@ app.put("/cliente/nuevocolaborador/:num",function(req,res){
 });
 
 app.listen(8080);
-
-
